@@ -37,7 +37,7 @@ public class BoardController {
             description = "새로운 게시글을 생성합니다."
     )
     @PostMapping // POST 요청 처리 (/boards)
-    public ResponseEntity<BoardResponse> create(@RequestBody BoardCreateRequest request) {
+    public ResponseEntity<BoardResponse> create(@RequestBody BoardCreateRequest request) { // JSON Body 값 가져오기
         BoardResponse response = boardService.create(request);
         return ResponseEntity.ok(response);
     }
@@ -59,7 +59,7 @@ public class BoardController {
             description = "id로 특정 게시글을 조회합니다."
     )
     @GetMapping("/{id}")
-    public ResponseEntity<BoardResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<BoardResponse> findById(@PathVariable Long id) { // URL 경로 값 가져오기
         BoardResponse response = boardService.findById(id);
         return ResponseEntity.ok(response);
     }
